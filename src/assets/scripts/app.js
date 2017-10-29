@@ -14,11 +14,31 @@ ManageoTestApp.config(function (angularAuth0Provider, $stateProvider, $locationP
       url: "/",
       controller: "HomeController",
       templateUrl: "/views/home.html",
-      controllerAs: "vm"
     })
     .state("callback", {
       url: "/callback",
+      controller: "CallbackController",
       template: "<h1> Waiting ... </h1>",
+    })
+    .state("users", {
+      url: "/users",
+      component: "users",
+      resolve: {
+        users: function (UsersModelService) {
+          return UsersModelService.getAll();
+        }
+      }
+    })
+    .state("users.user", {
+      url: "/{username}",
+      component: "user",
+      resolve: {
+        user: function(users, $stateParams) {
+          return users.find(function (user) {
+            return user.username === $stateParams.username;
+          });
+        }
+      }
     });
 
   angularAuth0Provider.init({
