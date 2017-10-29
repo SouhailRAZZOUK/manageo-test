@@ -24,8 +24,8 @@ ManageoTestApp.config(function (angularAuth0Provider, $stateProvider, $locationP
       url: "/users",
       component: "users",
       resolve: {
-        users: function (UsersModelService) {
-          return UsersModelService.getAll();
+        users: function (Users) {
+          return Users.getAll();
         }
       }
     })
