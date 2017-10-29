@@ -1,0 +1,18 @@
+include variables
+
+mixin main
+
+  doctype html
+  
+  html(ng-app="ManageoTest", ng-controller="AppController")
+    head
+      include head
+    body(media-queries-watcher)
+   
+      if block
+        block
+      else
+        p No content provided 
+
+      include angular-scripts
+      include app-scripts
