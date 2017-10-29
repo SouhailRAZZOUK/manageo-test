@@ -22,7 +22,7 @@ ManageoTestApp.config(function (angularAuth0Provider, $stateProvider, $locationP
     });
 
   angularAuth0Provider.init({
-    clientID: "HEVBri7tR54UEV32biom_nZAmXlYeUK8",
+    clientID: "orVb4b4Gl7CfD8LYwZuL7fVlAgO5Gd6v",
     domain: "souhail.auth0.com",
     responseType: "token id_token",
     audience: "https://souhail.auth0.com/userinfo",
@@ -36,4 +36,8 @@ ManageoTestApp.config(function (angularAuth0Provider, $stateProvider, $locationP
 
   $locationProvider.html5Mode(true);
 
-})
+});
+
+ManageoTestApp.run(["AuthService", function (AuthService) {
+  AuthService.handleAuthentication();
+}]);
