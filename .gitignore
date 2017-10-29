@@ -1,0 +1,5 @@
+*.map
+bin
+node_modules
+bin/assets/vendor/**/*
+typings
