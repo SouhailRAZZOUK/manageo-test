@@ -5,15 +5,15 @@
 
     this.details = {};
 
-    this.instance = function (id) {
-      if (id) {
-        return $resource('http://localhost:3001/users/:id', { id: id }, {});
+    this.instance = function (username) {
+      if (username) {
+        return $resource('http://localhost:3001/users/:username', { username: username }, {});
       }
       return $resource('http://localhost:3001/users', {}, {});
     }
 
-    this.get = function (id) {
-      model.instance(id).get().$promise.then(function (data) {
+    this.get = function (username) {
+      model.instance(username).get().$promise.then(function (data) {
         model.details = data;
       });
       return model;
@@ -23,17 +23,17 @@
       return model.instance().query().$promise;
     }
 
-    this.add = function (listId, taskData) {
+    this.add = function (username, userData) {
       var instance = model.instance();
-      var task = angular.merge({}, taskData, { taskslistId: listId })
-      return model.instance().save(task)
+      var user = angular.merge({}, userData, { username: username });
+      return model.instance().save(user);
     }
 
-    this.update = function (taskId, taskData) {
+    this.update = function (username, userData) {
 
     }
 
-    this.remove = function (taskId) {
+    this.remove = function (username) {
 
     }
 
