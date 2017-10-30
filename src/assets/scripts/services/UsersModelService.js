@@ -7,9 +7,9 @@
 
     this.instance = function (username) {
       if (username) {
-        return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users/:username', { username: username }, {});
+        return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users/:username', { username: username }, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
       }
-      return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users', {}, {});
+      return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users', {}, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
     }
 
     this.get = function (username) {
