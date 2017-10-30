@@ -8,6 +8,7 @@
 * NodeJS
 * NPM
 * GulpJS (installer globalement `npm install gulp -g`)
+* Webtask-Cli (Pour le Back-end j'utilise Webtask.io pour gerer les comptes en creeant un CRUD Rest API `server.js`)
 
 ### Acquisition du code
 
