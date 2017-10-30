@@ -7,9 +7,9 @@
 
     this.instance = function (username) {
       if (username) {
-        return $resource('http://localhost:3001/users/:username', { username: username }, {});
+        return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users/:username', { username: username }, {});
       }
-      return $resource('http://localhost:3001/users', {}, {});
+      return $resource('https://wt-souhail_razzouk-hotmail_com-0.run.webtask.io/ManageoTest_user_management/users', {}, {});
     }
 
     this.get = function (username) {
